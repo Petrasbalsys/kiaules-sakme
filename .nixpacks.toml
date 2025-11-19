@@ -1,5 +1,5 @@
 [phases.setup]
-nixPkgs = ["nodejs_22", "npm-9_x"]
+nixPkgs = ["nodejs_22"]
 
 [phases.install]
 cmds = ["npm ci"]
@@ -8,7 +8,4 @@ cmds = ["npm ci"]
 cmds = ["npm run build"]
 
 [start]
-cmd = "exec caddy run --config /assets/Caddyfile --adapter caddyfile 2>&1"
-
-[staticAssets]
-"dist" = "dist"
+cmd = "npx serve -s dist -p $PORT"
